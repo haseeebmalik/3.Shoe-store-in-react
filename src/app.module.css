@@ -1,0 +1,31 @@
+.container1 {
+  display: flex;
+  align-items: right;
+  justify-content: top;
+  flex-direction: column;
+  position: absolute;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+}
+
+.container2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+.appBar {
+  align-items: center;
+  width: 100%;
+}
+.top {
+  align-items: center;
+  width: 100%;
+  background-color: rgba(255, 0, 0, 0.7);
+  color: white;
+  justify-content: center;
+  text-align: center;
+  margin-top: 5%;
+}
