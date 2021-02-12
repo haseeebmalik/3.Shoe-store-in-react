@@ -2,7 +2,7 @@ import React, { createContext, useReducer, Children } from "react";
 import AppReducer from "./appReducer";
 
 const initialState = {
-  transactions: [],
+  cartItems: [],
 };
 // create context
 export const GlobalContext = createContext(initialState);
@@ -25,7 +25,7 @@ export const GlobalProvider = ({ children }) => {
   return (
     <GlobalContext.Provider
       value={{
-        transactions: state.transactions,
+        cartItems: state.cartItems,
         deleteTransaction,
         addTransaction,
       }}

@@ -22,9 +22,9 @@ import ButtonAppBar from "./appBar";
 function App() {
   const nevigate = useNavigate();
 
-  const [name, setName] = useState(100);
-  function setNameFun(name1) {
-    setName(name1);
+  const [shoeIndex, setShoeIndex] = useState(100);
+  function setIndFun(ind) {
+    setShoeIndex(ind);
   }
 
   return (
@@ -43,8 +43,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="shop" element={<Lounch />}>
-            <Route path="/" element={<LounchIndex setNameFun={setNameFun} />} />
-            <Route path=":slug" element={<ProductDetail name2={name} />} />
+            <Route path="/" element={<LounchIndex setIndFun={setIndFun} />} />
+            <Route
+              path=":slug"
+              element={<ProductDetail shoeIndex={shoeIndex} />}
+            />
           </Route>
         </Routes>
       </div>

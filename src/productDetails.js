@@ -44,24 +44,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ProductDetail({ name2 }) {
+function ProductDetail({ shoeIndex }) {
   const { addTransaction } = useContext(GlobalContext);
 
   const { slug } = useParams();
   console.log("slug in product detail", slug);
   const classes = useStyles();
   const [color, setColor] = useState("black");
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState(0);
 
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    const name = shoes[name2].name;
-    const price = shoes[name2].price;
-    console.log("gggggg", name);
-    console.log("bbbbbbbbbb", shoes[name2].name);
-    console.log("jjjjjj", price);
+    const name = shoes[shoeIndex].name;
+    const price = shoes[shoeIndex].price;
+
     const newTransaction = {
       id: Math.floor(Math.random() * 100000000),
       name,
@@ -71,29 +67,22 @@ function ProductDetail({ name2 }) {
     addTransaction(newTransaction);
   };
 
-  //const a={shoes1};
-
-  //let [i,seti]=useState(0);
-
-  if (name2 == 100) {
+  if (shoeIndex == 100) {
     return <div></div>;
   }
 
-  if (name2 >= 0 && name2 < 100) {
-    // {setName(shoes[name2].name)}
-    //  {setPrice(shoes[name2].price)}
-
+  if (shoeIndex >= 0 && shoeIndex < 100) {
     return (
       <div className={classes.root}>
         <Grid container spacing={3}>
           <Grid item xs={12}>
-            <img src={shoes[name2].img} className={styles.image1} />
+            <img src={shoes[shoeIndex].img} className={styles.image1} />
           </Grid>
           <Grid item xs>
             <Paper elevation={3} className={classes.paper}>
-              <h1> {shoes[name2].name} </h1>
+              <h1> {shoes[shoeIndex].name} </h1>
               <br />
-              <h2>${shoes[name2].price}</h2>
+              <h2>${shoes[shoeIndex].price}</h2>
               <hr />
 
               <br />
@@ -103,7 +92,7 @@ function ProductDetail({ name2 }) {
                   defaultValue=""
                   onChange={(e) => setColor(e.target.value)}
                 >
-                  {shoes[name2].colors.map((color, index) => (
+                  {shoes[shoeIndex].colors.map((color, index) => (
                     <option key={index} value={color}>
                       {color}
                     </option>
@@ -118,8 +107,6 @@ function ProductDetail({ name2 }) {
               {/*materialui for the button add to cart */}
 
               <div>
-                {console.log("hello")}
-
                 <Button variant="contained" color="primary" onClick={onSubmit}>
                   Add To Cart
                 </Button>

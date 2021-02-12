@@ -3,8 +3,8 @@ import { GlobalContext } from "../context/globalState";
 import { Item } from "./item";
 
 export const Itemlist = () => {
-  const { transactions } = useContext(GlobalContext);
-  console.log("aaaa", transactions);
+  const { cartItems } = useContext(GlobalContext);
+  console.log("cartItems", cartItems);
   return (
     <>
       <Item />

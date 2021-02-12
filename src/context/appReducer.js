@@ -4,14 +4,14 @@ const AppReducer = (state, action) => {
     case "DELETE-TRANSACTION":
       return {
         ...state,
-        transactions: state.transactions.filter(
+        cartItems: state.cartItems.filter(
           (transaction) => transaction.id !== action.payload
         ),
       };
     case "ADD-TRANSACTION":
       return {
         ...state,
-        transactions: [action.payload, ...state.transactions],
+        cartItems: [action.payload, ...state.cartItems],
       };
     default:
       return state;

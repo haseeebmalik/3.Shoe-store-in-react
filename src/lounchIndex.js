@@ -1,14 +1,8 @@
-import React, { useContext } from "react";
-import logo from "./logo.svg";
+import React from "react";
+
 import "./App.css";
 import shoes from "./data";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  useNavigate,
-} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -27,17 +21,13 @@ const useStyles = makeStyles({
   },
 });
 
-function LounchIndex({ setNameFun }) {
+function LounchIndex({ setIndFun }) {
   const classes = useStyles();
   const nevigate = useNavigate();
 
   return (
     <div>
       {Object.entries(shoes).map(([slug, { img, name, price }], i) => {
-        console.log("slug", slug);
-        console.log("i", i);
-        console.log("img=", { img }, "name=", { name });
-
         return (
           <Card className={classes.root} key={i}>
             <CardActionArea>
@@ -60,7 +50,7 @@ function LounchIndex({ setNameFun }) {
                 color="primary"
                 onClick={() => {
                   nevigate(`/shop/${shoes[i].name}`);
-                  setNameFun(i);
+                  setIndFun(i);
                 }}
               >
                 Learn More

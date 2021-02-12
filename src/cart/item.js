@@ -24,10 +24,10 @@ const useStyles = makeStyles({
 
 export const Item = ({ item }) => {
   const classes = useStyles();
-  const { deleteTransaction } = useContext(GlobalContext);
-  const { transactions } = useContext(GlobalContext);
+ 
+  const { cartItems } = useContext(GlobalContext);
 
-  const amounts = transactions.map((transaction) => transaction.price);
+  const amounts = cartItems.map((transaction) => transaction.price);
   console.log("ppppppppppppp", amounts);
   const results = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2);
 
@@ -45,7 +45,7 @@ export const Item = ({ item }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {transactions.map((item) => (
+            {cartItems.map((item) => (
               <TableRow key={item.id}>
                 <TableCell component="th" scope="row">
                   {item.name}
